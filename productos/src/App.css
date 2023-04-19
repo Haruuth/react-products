@@ -105,3 +105,9 @@
   padding: '20px';
   z-Index: 2
 }
+
+.modal{
+  width: 400px;
+  height: 400px;
+  background-color: blue;
+}

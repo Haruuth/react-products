@@ -13,19 +13,32 @@ export const HomePage = () => {
     {
       name: "WebCam",
       cantidad: 5,
+      comments: []
     },
     {
       name: "Monitor",
       cantidad: 5,
+      comments: []
     },
     {
       name: "Tarjeta gráfica",
       cantidad: 5,
+      comments: []
     },
   ];
 
   const [misProductos, setMisProductos] = useState(myProducts);
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState();
+
+
+  const saveComment = (value) => {
+    const listaModificada = [...misProductos];
+    const copyComments =listaModificada[selectedProduct].comments;
+    copyComments.push(value)
+    listaModificada[selectedProduct].comments = copyComments;
+    setMisProductos(listaModificada);
+  }
 
   const modifyProduct = (index) => {
     const listaModificada = [...misProductos];
@@ -33,6 +46,13 @@ export const HomePage = () => {
     listaModificada[index].cantidad = prompt("Elige la cantidad");
     setMisProductos(listaModificada);
   };
+  const addComment = (index) => {
+    // 1- abrir modal
+    setIsOpen(true)
+    // 2 - guardar el index
+    setSelectedProduct(index)
+  };
+
 
   const addProduct = () => {
     let nombre;
@@ -59,11 +79,13 @@ export const HomePage = () => {
         deleteProduct={deleteProduct}
         products={misProductos}
         close={setIsOpen}
+        comment={addComment}
+        
       ></Productos>
       
 
       
-    <Comentario open = {isOpen} close = { () => setIsOpen(false)} ></Comentario>
+    <Comentario misProductos={misProductos} producto={selectedProduct} guardar={saveComment} open = {isOpen} close = { () => setIsOpen(false)} ></Comentario>
        {/* <div className="bot-style">
          <button onClick = {() => setIsOpen(true) }> Comentar </button>
        </div>

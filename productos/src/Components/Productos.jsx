@@ -6,6 +6,7 @@ export const Productos = ({
   modifyProduct,
   addProduct,
   close,
+  comment
 
 }) => {
   return (
@@ -30,7 +31,7 @@ export const Productos = ({
             <h4> {item.name}</h4>
             <h4>Cantidad: {item.cantidad}</h4>
           </div>
-          <button onClick = {() => close(true) } >COMENTAR</button>
+          <button onClick = {() => {comment(index)} }>COMENTAR</button>
           </div>
         ))}
         <img
