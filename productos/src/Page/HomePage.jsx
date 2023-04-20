@@ -7,38 +7,35 @@ import Comentario from "../Components/Comentario";
 
 
 export const HomePage = () => {
-  
-
   const myProducts = [
     {
       name: "WebCam",
       cantidad: 5,
-      comments: []
+      comments: [],
     },
     {
       name: "Monitor",
       cantidad: 5,
-      comments: []
+      comments: [],
     },
     {
       name: "Tarjeta gráfica",
       cantidad: 5,
-      comments: []
+      comments: [],
     },
   ];
 
   const [misProductos, setMisProductos] = useState(myProducts);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState();
+  
 
-
-  const saveComment = (value) => {
+    const saveComment = (value) => {
     const listaModificada = [...misProductos];
-    const copyComments =listaModificada[selectedProduct].comments;
-    copyComments.push(value)
-    listaModificada[selectedProduct].comments = copyComments;
+    listaModificada[selectedProduct].comments.push(value);
     setMisProductos(listaModificada);
-  }
+    console.log(listaModificada)
+  };
 
   const modifyProduct = (index) => {
     const listaModificada = [...misProductos];
@@ -46,13 +43,13 @@ export const HomePage = () => {
     listaModificada[index].cantidad = prompt("Elige la cantidad");
     setMisProductos(listaModificada);
   };
+
   const addComment = (index) => {
     // 1- abrir modal
-    setIsOpen(true)
+    setIsOpen(true);
     // 2 - guardar el index
-    setSelectedProduct(index)
+    setSelectedProduct(index);
   };
-
 
   const addProduct = () => {
     let nombre;
@@ -73,26 +70,22 @@ export const HomePage = () => {
 
   return (
     <div>
+      <Comentario
+        misProductos={misProductos}
+        producto={selectedProduct}
+        guardar={saveComment}
+        open={isOpen}
+        close={() => setIsOpen(false)}
+      ></Comentario>
+      
       <Productos
         addProduct={addProduct}
         modifyProduct={modifyProduct}
         deleteProduct={deleteProduct}
         products={misProductos}
-        close={setIsOpen}
         comment={addComment}
-        
       ></Productos>
-      
 
-      
-    <Comentario misProductos={misProductos} producto={selectedProduct} guardar={saveComment} open = {isOpen} close = { () => setIsOpen(false)} ></Comentario>
-       {/* <div className="bot-style">
-         <button onClick = {() => setIsOpen(true) }> Comentar </button>
-       </div>
-       <div className="bot-style2">
-         Otro contenido / Other content
-       </div> */}
-    
     </div>
   );
-}
+};

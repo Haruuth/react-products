@@ -1,12 +1,14 @@
 import React from "react";
+import './Producto.scss'
+
 
 export const Productos = ({
   products,
   deleteProduct,
   modifyProduct,
   addProduct,
-  close,
-  comment
+  comment,
+
 
 }) => {
   return (
@@ -31,15 +33,15 @@ export const Productos = ({
             <h4> {item.name}</h4>
             <h4>Cantidad: {item.cantidad}</h4>
           </div>
-          <button onClick = {() => {comment(index)} }>COMENTAR</button>
+          <button className="comentar" onClick = {() => {comment(index)} }>COMENTAR</button>
           </div>
         ))}
         <img
           className="botoncito"
           onClick={addProduct}
-          src="https://cdn-icons-png.flaticon.com/512/32/32339.png"
-          alt="cruz"
-        />
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png"
+          alt="react"
+        /> 
       </div>
       
     

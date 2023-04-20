@@ -36,78 +36,15 @@
     transform: rotate(360deg);
   }
 }
-.prod {
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-}
-
-.individual {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 170px;
-  height: 200px;
-  border: 1px solid black;
-}
-
-.images {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 10px;
-  margin: 4px;
-}
-
-.modify {
-  width: 20px;
-  height: 22px;
-}
-
-.borrar {
-  width: 20px;
-  height: 20px;
-}
-
-.botoncito{
-  background-color: transparent;
-}
-
-@keyframes ventilador {
-    0%{
-      rotate: (0deg);
-    }
-    100%{
-      rotate: (360deg);
-    }
-}
-
-.botoncito {
-  width: 200px;
-  height: 200px;
-  transition: transform 10s ease-in-out;
-  animation: ventilador 0s 10s infinite;
-}
-
-.botoncito:hover {
-  transform: rotate(360000deg);
-  
-}
 
 
-.bot-style{
-  position: 'relative';
+/* .bot-style{
+  position: relative;
   z-Index: 1
 }
 
 .bot-style2{
-  background: 'red';
-  padding: '20px';
+  background: red;
+  padding: 20px;
   z-Index: 2
-}
-
-.modal{
-  width: 400px;
-  height: 400px;
-  background-color: blue;
-}
+} */
