@@ -12,6 +12,8 @@ export const Productos = ({
 
 }) => {
   return (
+    <>    
+    <h2>PRODUCTOS</h2>
     <div className="prod">
         {products.map((item, index) => (
         <div className="todo">
@@ -36,14 +38,16 @@ export const Productos = ({
           <button className="comentar" onClick = {() => {comment(index)} }>COMENTAR</button>
           </div>
         ))}
+        <div className="botoncito">
         <img
-          className="botoncito"
           onClick={addProduct}
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png"
-          alt="react"
+          src="https://www.pngall.com/wp-content/uploads/10/Plus-Symbol-Silhouette-PNG-Cutout.png"
+          alt="addProduct"
         /> 
+        </div>
       </div>
-      
+      </>
     
   );
 };
+

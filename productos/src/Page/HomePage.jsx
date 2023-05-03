@@ -29,6 +29,7 @@ export const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState();
   
+  
 
     const saveComment = (value) => {
     const listaModificada = [...misProductos];
@@ -68,6 +69,16 @@ export const HomePage = () => {
     setMisProductos(eliminado);
   };
 
+
+  const eliminarComentario = (productoIndex, comentarioIndex) => {
+    setMisProductos(prevMisProductos => {
+      const newMisProductos = [...prevMisProductos];
+      const comments = newMisProductos[productoIndex].comments;
+      comments.splice(comentarioIndex, 1); // elimina el comentario del array
+      return newMisProductos;
+    });
+  }
+
   return (
     <div>
       <Comentario
@@ -76,6 +87,7 @@ export const HomePage = () => {
         guardar={saveComment}
         open={isOpen}
         close={() => setIsOpen(false)}
+        eliminar={eliminarComentario}
       ></Comentario>
       
       <Productos

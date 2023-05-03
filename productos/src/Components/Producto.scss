@@ -9,11 +9,10 @@
 
 .individual {
   margin: 0px auto;
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
   border-style: solid;
   border-color: white;
-  border-width: 3px;
   overflow: hidden;
   }
 
@@ -27,18 +26,19 @@
   }
 
   .comentar{
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    width: 200px;
-    font-size: 20px;
+    width: 178px;
+    font-size: 15px;
     height: 30px;
-    background-color: rgba(252, 3, 3, 0.336);
+    background-color: rgba(241, 29, 29, 0.934);
   }
 
   .comentar:hover{
-    background-color: rgba(46, 46, 46, 0.498);
+    background-color: rgb(144, 22, 22);
   }
 
   
@@ -51,41 +51,32 @@
     width: 20px;
     height: 20px;
   }
-  
+   
   .botoncito{
+    display: flex;
+    align-items: center;
     background-color: transparent;
-  }
+    border: 1px solid white;
+    height: 170px;
+    width: 170px;
+}
 
-  @media (prefers-reduced-motion: no-preference) {
-    .botoncito {
-      animation: ventilador infinite 20s linear;
-    }
+  .botoncito img{
+    margin: 0px auto;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    transition: transform 1s ease-in-out;
   }
   
-  @keyframes ventilador {
-    from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
+  .botoncito:hover img {
+    transform: rotate(180deg);
   }
   
-  .botoncito {
-    width: auto;
-    height: 220px;
-    // transition: transform 10s ease-in-out;
-    // animation: ventilador 0s 10s infinite
-  }
-  
-  .botoncito:hover {
-    transform: rotate(360000deg);
-    
-  }
 
 .todo{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-  
+
